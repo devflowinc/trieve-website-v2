@@ -1,4 +1,7 @@
 ---
+import LayoutHeader from "./shared/LayoutHeader.astro";
+import LayoutFooter from "./shared/LayoutFooter.astro";
+
 import "../styles/global.css";
 ---
 
@@ -9,18 +12,20 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>
+      AI-First infrastructure API for search, recommendations, and
+      personalization - Trieve.ai
+    </title>
+    <meta
+      name="description"
+      content="Trieve is an AI-powered search infrastructure helping companies build search, recommendations, and personalization features in their products."
+    />
   </head>
-  <body>
-    <slot />
+  <body class="bg-amber-50 text-stone-900">
+    <LayoutHeader />
+    <main id="main" class="min-h-screen">
+      <slot />
+    </main>
+    <LayoutFooter />
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>

@@ -1,23 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import background from "../assets/background.svg";
+import Hero from "../components/Hero.astro";
 ---
 
 <Layout>
   <div class="container max-w-7xl mx-auto relative z-10">
-    <div class="py-16">
-      <h1 class="text-7xl tracking-tighter text-balance">
-        AI search infrastructure for the modern world
-      </h1>
-      <p class="text-xl font-normal my-4 text-balance">
-        We help companies build unfair competitive advantages through their
-        discovery experiences.
-      </p>
-    </div>
+    <Hero />
+    <img
+      src={background.src}
+      alt=""
+      class="fixed top-0 left-0 w-full h-full z-0 blur-3xl pointer-events-none"
+    />
   </div>
-  <img
-    src={background.src}
-    alt=""
-    class="fixed top-0 left-0 w-full h-full z-0 blur-3xl pointer-events-none"
-  />
 </Layout>

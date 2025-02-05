@@ -8,6 +8,9 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
+  image: {
+    domains: ["127.0.0.1"],
+  },
   vite: {
     plugins: [tailwindcss()],
   },

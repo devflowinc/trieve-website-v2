@@ -1,31 +1,26 @@
 ---
+import PageContent from "../components/PageContent.astro";
 import Layout from "../layouts/Layout.astro";
-
-import Hero from "../components/Hero.astro";
+import strapi from "../lib/strapi";
 
 type HomepageContent = {
   data: {
     documentId: string;
-    pageContent: Array<{
-      __component: string;
-      id: string;
-      title: string;
-      subtitle: string;
-    }>;
+    pageContent: Array<any>;
   };
 };
 
-import strapi from "../lib/strapi";
-const homepage = await strapi.single("homepage").find({
-  populate: "*",
-});
-
-// Access hero content
-const hero = (homepage as unknown as HomepageContent)?.data?.pageContent[0];
+const homepage = (await strapi.single("homepage").find({
+  populate: {
+    pageContent: {
+      populate: "*",
+    },
+  },
+})) as unknown as HomepageContent;
 ---
 
 <Layout>
   <div class="container max-w-7xl mx-auto relative z-10">
-    <Hero title={hero.title} subtitle={hero.subtitle} />
+    <PageContent content={homepage?.data?.pageContent} />
   </div>
 </Layout>

@@ -1,0 +1,29 @@
+---
+import ContentWithImageSection from "./ContentWithImage.astro";
+import HeroSection from "./HeroSection.astro";
+
+interface Props {
+  content: Array<
+    {
+      __component: string;
+    } & any
+  >;
+}
+
+const { content = [] } = Astro.props;
+---
+
+<div class="container max-w-7xl mx-auto relative z-10">
+  {
+    content.map((item) => {
+      switch (item.__component) {
+        case "content.hero":
+          return <HeroSection {...item} />;
+        case "content.content-with-image":
+          return <ContentWithImageSection {...item} />;
+        default:
+          return null;
+      }
+    })
+  }
+</div>

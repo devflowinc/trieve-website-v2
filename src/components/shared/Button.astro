@@ -1,0 +1,28 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  href: string;
+  newTab: boolean;
+  variant: "primary" | "secondary" | "tertiary";
+}
+
+const { title, href, newTab, variant } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={[
+    "p-4 px-6 rounded-full shadow-md border-2 transition-all hover:shadow-lg",
+    {
+      "bg-purple-700 text-white border-purple-700 hover:bg-purple-800":
+        variant === "primary",
+      "bg-white text-purple-700 border-purple-700 hover:bg-purple-50 hover:text-purple-800":
+        variant === "secondary",
+    },
+  ]}
+  target={newTab ? "_blank" : "_self"}
+  rel={newTab ? "noopener noreferrer" : ""}
+>
+  {title}
+</a>

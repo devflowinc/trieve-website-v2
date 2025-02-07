@@ -1,0 +1,37 @@
+---
+import Button from "./shared/Button.astro";
+
+interface Props {
+  title?: string;
+  leadText?: string;
+  tagline?: string;
+  actions: Array<{
+    id: string;
+    title: string;
+    href: string;
+    newTab: boolean;
+    variant: "primary" | "secondary";
+  }>;
+}
+
+const { title, leadText, tagline, actions } = Astro.props;
+---
+
+<section>
+  <div class="py-32 text-center flex flex-col items-center gap-4">
+    <span
+      class="text-purple-700 text-xs uppercase tracking-wid rounded-full bg-white/50 px-4 py-2"
+    >
+      {tagline}
+    </span>
+    <h1 class="text-6xl font-serif tracking-tighter text-balance">
+      {title}
+    </h1>
+    <p class="text-2xl font-light text-balance">
+      {leadText}
+    </p>
+    <div class="flex gap-4 mt-8">
+      {actions.map((action) => <Button {...action} />)}
+    </div>
+  </div>
+</section>

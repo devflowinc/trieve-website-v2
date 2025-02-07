@@ -10,3 +10,19 @@ const strapiSdk = strapi({
 });
 
 export default strapiSdk;
+
+export async function getHomeContent() {
+  const content = await strapiSdk.single("home").find({
+    populate: ["heroHeader.actions"],
+  });
+
+  return content?.data as any;
+}
+
+export async function getSingleContent(key: string) {
+  const content = await strapiSdk.single(key).find({
+    populate: "*",
+  });
+
+  return content?.data as any;
+}

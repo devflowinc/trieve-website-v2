@@ -1,6 +1,5 @@
 ---
-import ContentWithImageSection from "./ContentWithImage.astro";
-import HeroSection from "./HeroSection.astro";
+import ContentImageSection from "./ContentImageSection.astro";
 
 interface Props {
   content: Array<
@@ -17,12 +16,10 @@ const { content = [] } = Astro.props;
   {
     content.map((item) => {
       switch (item.__component) {
-        case "content.hero":
-          return <HeroSection {...item} />;
-        case "content.content-with-image":
-          return <ContentWithImageSection {...item} />;
+        case "sections.content-image-groups":
+          return <ContentImageSection {...item} />;
         default:
-          return null;
+          return <>Unknown component: {item.__component}</>;
       }
     })
   }

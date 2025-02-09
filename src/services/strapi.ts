@@ -13,7 +13,18 @@ export default strapiSdk;
 
 export async function getHomeContent() {
   const content = await strapiSdk.single("home").find({
-    populate: ["heroHeader.actions"],
+    populate: {
+      heroHeader: {
+        populate: "*",
+      },
+      pageContent: {
+        on: {
+          "sections.content-image-groups": {
+            populate: ["contentGroups", "contentGroups.image"],
+          },
+        },
+      },
+    },
   });
 
   return content?.data as any;

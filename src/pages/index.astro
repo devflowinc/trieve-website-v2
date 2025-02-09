@@ -1,17 +1,24 @@
 ---
 import HeroHeader from "../components/HeroHeader.astro";
+import PageContent from "../components/PageContent.astro";
 import Layout from "../layouts/Layout.astro";
 import { getHomeContent } from "../services/strapi";
 
 const content = await getHomeContent();
 const heroHeader = content.heroHeader?.[0];
+const pageContent = content.pageContent;
 ---
 
 <Layout>
   <div class="container max-w-7xl mx-auto relative z-10">
     <HeroHeader {...heroHeader} />
   </div>
+  <PageContent content={pageContent} />
+  {
+    /*
   <div class="container max-w-7xl mx-auto mt-16 bg-white p-8 text-xs">
     <pre>{JSON.stringify(content, null, 2)}</pre>
   </div>
+  */
+  }
 </Layout>

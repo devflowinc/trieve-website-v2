@@ -1,5 +1,5 @@
 ---
-import Button from "./shared/Button.astro";
+import LinkButton from "./shared/LinkButton.astro";
 
 interface Props {
   title: string;
@@ -35,7 +35,7 @@ const { title, leadText, tagline, actions } = Astro.props;
       actions ? (
         <div class="flex gap-4 mt-8">
           {actions.map((action) => (
-            <Button {...action} />
+            <LinkButton {...action}>{action.label}</LinkButton>
           ))}
         </div>
       ) : null

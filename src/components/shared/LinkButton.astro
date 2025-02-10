@@ -1,19 +1,21 @@
 ---
 interface Props {
-  label: string;
   href: string;
-  newTab: boolean;
+  newTab?: boolean;
   variant: "primary" | "secondary" | "tertiary";
+  size?: "compact" | "default";
 }
 
-const { label, href, newTab, variant } = Astro.props;
+const { href, newTab, variant, size = "default" } = Astro.props;
 ---
 
 <a
   href={href}
   class:list={[
-    "p-4 px-6 rounded-full shadow-md border-2 transition-all hover:shadow-lg",
+    "rounded-full shadow-md border-2 transition-all hover:shadow-lg",
     {
+      "p-4 px-6": size === "default",
+      "p-2 px-4": size === "compact",
       "bg-purple-700 text-white border-purple-700 hover:bg-purple-800":
         variant === "primary",
       "bg-white text-purple-700 border-purple-700 hover:bg-purple-50 hover:text-purple-800":
@@ -23,5 +25,5 @@ const { label, href, newTab, variant } = Astro.props;
   target={newTab ? "_blank" : "_self"}
   rel={newTab ? "noopener noreferrer" : ""}
 >
-  {label}
+  <slot />
 </a>

@@ -7,6 +7,7 @@ import HeroHeader from "../components/HeroHeader.astro";
 import PageContent from "../components/PageContent.astro";
 import Layout from "../layouts/Layout.astro";
 import { keystatic } from "../lib/keystatic/client";
+import CallToAction from "src/components/CallToAction.astro";
 
 const homepageContent = await keystatic.singletons.homepage.read();
 invariant(homepageContent, "No homepage content found");
@@ -18,4 +19,6 @@ const pageContent = homepageContent.content;
 <Layout>
   <HeroHeader {...heroHeader} />
   <PageContent content={pageContent} />
+
+  <CallToAction />
 </Layout>

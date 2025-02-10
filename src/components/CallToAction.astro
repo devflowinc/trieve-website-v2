@@ -1,0 +1,27 @@
+---
+import LinkButton from "./shared/LinkButton.astro";
+---
+
+<section class="py-8">
+  <div
+    class="max-w-4xl mx-auto p-16 rounded-xl bg-white shadow-lg flex flex-col items-center gap-4"
+  >
+    <h2 class="text-4xl font-serif text-center">Ready to get started?</h2>
+    <p class="text-lg">
+      Experience an AI-native, end-to-end, solution for the trends of today and
+      tomorrow
+    </p>
+
+    <div class="flex flex-row justify-center gap-4">
+      <LinkButton
+        href="https://dashboard.trieve.ai/"
+        newTab
+        variant="primary"
+        size="compact">Get Started</LinkButton
+      >
+      <LinkButton href="/request-demo" variant="secondary" size="compact"
+        >Request a Demo</LinkButton
+      >
+    </div>
+  </div>
+</section>

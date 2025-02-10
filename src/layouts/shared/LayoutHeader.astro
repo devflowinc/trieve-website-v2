@@ -1,18 +1,62 @@
-<header class="container max-w-7xl mx-auto border-b border-amber-500/10">
-  <div class="flex justify-between items-center py-4">
-    <a href="/" class="text-2xl font-serif font-semibold text-amber-950"
-      >Trieve</a
-    >
-    <nav>
-      <a href="/platform" class="mr-4">Platform</a>
-      <a
-        href="https://docs.astro.build"
-        class="mr-4"
-        target="_blank"
-        rel="noopener noreferrer">Docs</a
-      >
-      <a href="/pricing" class="mr-4">Pricing</a>
-      <a href="/blog">Blog</a>
+---
+import { Image } from "astro:assets";
+import TrieveLogo from "@assets/global/trieve-logo.png";
+
+interface NavLink {
+  label: string;
+  href: string;
+  target?: string;
+  rel?: string;
+}
+
+const navLinks: NavLink[] = [
+  { label: "E-commerce", href: "/platform/e-commerce" },
+  { label: "Blog", href: "/blog" },
+  {
+    label: "Developers",
+    href: "https://docs.astro.build",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  { label: "Pricing", href: "/pricing" },
+];
+---
+
+<header class="container mx-auto border-b border-stone-500/10">
+  <div class="flex items-center py-4">
+    <a href="/" class="flex flex-row gap-2 items-center">
+      <Image src={TrieveLogo} alt="Trieve" class="h-10 w-10 relative -top-1" />
+      <span class="text-3xl font-serif font-semibold text-amber-950">
+        Trieve
+      </span>
+    </a>
+    <nav class="ml-8 flex flex-row">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            target={link.target}
+            rel={link.rel}
+            class="p-1 px-3 rounded-2xl hover:bg-amber-200/25"
+          >
+            {link.label}
+          </a>
+        ))
+      }
     </nav>
+    <div class="ml-auto flex flex-row gap-2">
+      <a href="/login" class="p-1 px-3 rounded-2xl hover:bg-amber-200/25">
+        Log in
+      </a>
+      <a
+        href="/request-demo"
+        class="p-1 px-3 rounded-2xl border border-purple-500 text-purple-500 bg-white hover:bg-purple-700 hover:text-white"
+      >
+        Book a demo
+      </a>
+      <a href="/signup" class="p-1 px-3 rounded-2xl bg-purple-700 text-white">
+        Sign up →
+      </a>
+    </div>
   </div>
 </header>

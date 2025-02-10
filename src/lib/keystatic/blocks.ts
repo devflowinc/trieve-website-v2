@@ -89,3 +89,19 @@ export const imageAndTextBlock = {
     ),
   }),
 };
+
+// Section that displays brands with logos
+export const brandsBlock = {
+  label: "Trusted Brands",
+  schema: fields.object({
+    header: fields.object(
+      {
+        ...baseHeaderFields,
+      },
+      {
+        label: "Header",
+        description: "The header part of the brands block",
+      }
+    ),
+  }),
+};

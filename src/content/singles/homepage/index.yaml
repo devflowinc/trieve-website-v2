@@ -8,7 +8,7 @@ metaData:
     sub-sentence highlighting, document expansion, and more all in one service
     that you can host yourself.
 heroHeader:
-  tagline: Powerful infrastructure
+  tagline: Search infrastructure for E-commerce
   title: AI search for the modern world
   leadText: >-
     We help companies build unfair competitive advantages through their
@@ -23,6 +23,10 @@ heroHeader:
       newTab: false
       variant: secondary
 content:
+  - discriminant: brandsBlock
+    value:
+      header:
+        title: Powering 30,000+ discovery experiences across categories
   - discriminant: featuresBlock
     value:
       header:
@@ -63,7 +67,7 @@ content:
         tagline: Build Fast and Don't Break Things
         title: Manage ingestion, embeddings and analytics with ease
       items:
-        - image: "/src/assets/images/blocks/content/1/value/items/0/image.png"
+        - image: /src/assets/images/blocks/content/2/value/items/0/image.png
           title: Built on the best foundations
           description: >-
             We help companies build unfair competitive advantages through their
@@ -81,18 +85,18 @@ content:
               description: >-
                 Sensitive data? Need maximum performance? Host Trieve yourself
                 with terraform templates and no external dependencies.
-        - image: "/src/assets/images/blocks/content/1/value/items/1/image.png"
+        - image: /src/assets/images/blocks/content/2/value/items/1/image.png
           title: Set up industry-leading search in 30 minutes
           items:
-            - title: "Step 1: Add Existing Data"
+            - title: 'Step 1: Add Existing Data'
               description: >-
                 Upload individual chunks or entire documents that get chunked by
                 our algorithms via our API or no-code dashboard.
-            - title: "Step 2: Integrate our API"
+            - title: 'Step 2: Integrate our API'
               description: >-
                 Add calls to our API on your create and update routes to keep
                 your data current.
-            - title: "Step 3: Search, Recommend, or Generate"
+            - title: 'Step 3: Search, Recommend, or Generate'
               description: >-
                 Test and tune search, recommendations, and chat quality with our
                 search playground, then integrate the API calls into your

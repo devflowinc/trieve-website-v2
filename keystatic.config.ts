@@ -3,6 +3,7 @@ import {
   headerBlock,
   featuresBlock,
   imageAndTextBlock,
+  brandsBlock,
 } from "./src/lib/keystatic/blocks";
 
 export default config({
@@ -62,6 +63,7 @@ export default config({
             headerBlock: headerBlock,
             featuresBlock: featuresBlock,
             imageAndTextBlock: imageAndTextBlock,
+            brandsBlock: brandsBlock,
           },
           {
             label: "Content Sections",

@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+import SectionHeader from "./shared/SectionHeader.astro";
+
+import AgenticLabsLogo from "@assets/global/brands/agentic-labs-logo.png";
+import BestwayLogo from "@assets/global/brands/bestway-logo.png";
+import Billtrack50Logo from "@assets/global/brands/billtrack50-logo.svg";
+import GuardantHealthLogo from "@assets/global/brands/guardant-health-logo.svg";
+import HostaiLogo from "@assets/global/brands/hostai-logo.webp";
+import MintlifyLogo from "@assets/global/brands/mintlify-logo.svg";
+import OpenmartLogo from "@assets/global/brands/openmart-logo.svg";
+import ParcelheroLogo from "@assets/global/brands/parcelhero-logo.webp";
+import SignozLogo from "@assets/global/brands/signoz-logo.svg";
+import VapiLogo from "@assets/global/brands/vapi-logo.png";
+
+const BRANDS = {
+  AgenticLabs: AgenticLabsLogo,
+  Bestway: BestwayLogo,
+  "Bill Track 50": Billtrack50Logo,
+  "Guardant Health": GuardantHealthLogo,
+  Hostai: HostaiLogo,
+  Mintlify: MintlifyLogo,
+  Openmart: OpenmartLogo,
+  Parcelhero: ParcelheroLogo,
+  Signoz: SignozLogo,
+  Vapi: VapiLogo,
+};
+---
+
+<section class="my-16 mb-32">
+  <SectionHeader
+    title="Powering 30,000+ discovery experiences across categories"
+  />
+  <div
+    class="flex flex-row items-center justify-center p-8 flex-wrap gap-8 max-w-5xl mx-auto"
+  >
+    {
+      Object.entries(BRANDS).map(([key, logo]) => (
+        <Image
+          src={logo}
+          alt={key}
+          class="w-auto h-8 object-contain hover:opacity-100 transition-all duration-300"
+        />
+      ))
+    }
+  </div>
+</section>

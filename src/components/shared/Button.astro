@@ -1,13 +1,12 @@
 ---
 interface Props {
-  id: string;
-  title: string;
+  label: string;
   href: string;
   newTab: boolean;
   variant: "primary" | "secondary" | "tertiary";
 }
 
-const { title, href, newTab, variant } = Astro.props;
+const { label, href, newTab, variant } = Astro.props;
 ---
 
 <a
@@ -24,5 +23,5 @@ const { title, href, newTab, variant } = Astro.props;
   target={newTab ? "_blank" : "_self"}
   rel={newTab ? "noopener noreferrer" : ""}
 >
-  {title}
+  {label}
 </a>

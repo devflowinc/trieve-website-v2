@@ -1,0 +1,23 @@
+---
+interface Props {
+  title: string;
+  tagline?: string;
+  leadText: string;
+}
+
+const { title, tagline, leadText } = Astro.props;
+---
+
+<div class="flex flex-col gap-2 items-center justify-center">
+  {
+    tagline ? (
+      <span class="text-purple-700 text-xs uppercase tracking-wid rounded-full bg-white/50 px-4 py-2">
+        {tagline}
+      </span>
+    ) : null
+  }
+  <h2 class="text-4xl font-normal font-serif tracking-tighter text-balance">
+    {title}
+  </h2>
+  <p class="text-gray-500">{leadText}</p>
+</div>

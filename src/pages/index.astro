@@ -1,24 +1,21 @@
 ---
+import { getCollection } from "astro:content";
+import { Debug } from "astro:components";
+import invariant from "tiny-invariant";
+
 import HeroHeader from "../components/HeroHeader.astro";
 import PageContent from "../components/PageContent.astro";
 import Layout from "../layouts/Layout.astro";
-import { getHomeContent } from "../services/strapi";
+import { keystatic } from "../lib/keystatic/client";
 
-const content = await getHomeContent();
-const heroHeader = content.heroHeader?.[0];
-const pageContent = content.pageContent;
+const homepageContent = await keystatic.singletons.homepage.read();
+invariant(homepageContent, "No homepage content found");
+
+const heroHeader = homepageContent.heroHeader;
+const pageContent = homepageContent.content;
 ---
 
 <Layout>
-  <div class="container max-w-7xl mx-auto relative z-10">
-    <HeroHeader {...heroHeader} />
-  </div>
+  <HeroHeader {...heroHeader} />
   <PageContent content={pageContent} />
-  {
-    /*
-  <div class="container max-w-7xl mx-auto mt-16 bg-white p-8 text-xs">
-    <pre>{JSON.stringify(content, null, 2)}</pre>
-  </div>
-  */
-  }
 </Layout>

@@ -1,0 +1,100 @@
+metaData:
+  title: >-
+    AI-First infrastructure API for search, recommendations, and RAG that
+    combines language models with tools for fine tuning ranking and relevance
+  description: >-
+    Build better, faster, and more relevant search and RAG with Trieve's
+    platform. Date recency biasing, re-ranker models, semantic search,
+    sub-sentence highlighting, document expansion, and more all in one service
+    that you can host yourself.
+heroHeader:
+  tagline: Powerful infrastructure
+  title: AI search for the modern world
+  leadText: >-
+    We help companies build unfair competitive advantages through their
+    discovery experiences
+  actions:
+    - label: Get started for free
+      href: https://dashboard.trieve.ai/
+      newTab: true
+      variant: primary
+    - label: Request a demo
+      href: /request-demo
+      newTab: false
+      variant: secondary
+content:
+  - discriminant: featuresBlock
+    value:
+      header:
+        tagline: End-to-end
+        title: Trieve Coordinates, You Scale
+        leadText: >-
+          Billion-scale search, discovery, and RAG experiences within the same
+          API
+      items:
+        - title: Semantic Vector Search
+          description: >-
+            For when you need more than just full-text search. Trieve supports
+            semantic vector search out of the box.
+        - title: Stock and Custom Embedding models
+          description: >-
+            Our modular infrastructure offers several models and bring your own
+            embedding model.
+        - title: Merchandising & Relevance tuning
+          description: >-
+            Tune and boost search results to hit your KPIs via the API or
+            no-code dashboard.
+        - title: BM25 & SPLADE Full-Text Search
+          description: >-
+            Choose between the leading state-of-the-art retrieval models for
+            full-text search.
+        - title: Hybrid Search
+          description: >-
+            Get the best of both worlds. Trieve supports hybrid search,
+            combining full-text search and semantic vector search with
+            cross-encoder re-ranker models.
+        - title: Sub-sentence Highlighting
+          description: >-
+            Search results can get long. Sub-sentence highlights show users
+            exactly what they are looking for, quick.
+  - discriminant: imageAndTextBlock
+    value:
+      header:
+        tagline: Build Fast and Don't Break Things
+        title: Manage ingestion, embeddings and analytics with ease
+      items:
+        - image: "/src/assets/images/blocks/content/1/value/items/0/image.png"
+          title: Built on the best foundations
+          description: >-
+            We help companies build unfair competitive advantages through their
+            search, discovery, and RAG experiences
+          items:
+            - title: Private Open-Source Models
+              description: >-
+                We use open source embedding models and LLMs running in our own
+                servers. Data is never leaked.
+            - title: Batteries Included
+              description: >-
+                Our API surface covers chunking, ingestion, search,
+                recommendations, RAG, and even a little front-end.
+            - title: Self-Hostable
+              description: >-
+                Sensitive data? Need maximum performance? Host Trieve yourself
+                with terraform templates and no external dependencies.
+        - image: "/src/assets/images/blocks/content/1/value/items/1/image.png"
+          title: Set up industry-leading search in 30 minutes
+          items:
+            - title: "Step 1: Add Existing Data"
+              description: >-
+                Upload individual chunks or entire documents that get chunked by
+                our algorithms via our API or no-code dashboard.
+            - title: "Step 2: Integrate our API"
+              description: >-
+                Add calls to our API on your create and update routes to keep
+                your data current.
+            - title: "Step 3: Search, Recommend, or Generate"
+              description: >-
+                Test and tune search, recommendations, and chat quality with our
+                search playground, then integrate the API calls into your
+                product.
+            - title: Ready!

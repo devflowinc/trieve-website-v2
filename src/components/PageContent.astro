@@ -1,25 +1,27 @@
 ---
-import ContentImageSection from "./ContentImageSection.astro";
+import FeaturesSection from "./FeaturesSection.astro";
+import ImageAndTextSection from "./ImageAndTextSection.astro";
 
 interface Props {
-  content: Array<
-    {
-      __component: string;
-    } & any
-  >;
+  content: ReadonlyArray<{
+    discriminant: string;
+    value: any;
+  }>;
 }
 
 const { content = [] } = Astro.props;
 ---
 
-<div class="container max-w-7xl mx-auto relative z-10">
+<div id="page-content">
   {
     content.map((item) => {
-      switch (item.__component) {
-        case "sections.content-image-groups":
-          return <ContentImageSection {...item} />;
+      switch (item.discriminant) {
+        case "featuresBlock":
+          return <FeaturesSection {...item.value} />;
+        case "imageAndTextBlock":
+          return <ImageAndTextSection {...item.value} />;
         default:
-          return <>Unknown component: {item.__component}</>;
+          return <>Unknown component: {item.discriminant}</>;
       }
     })
   }

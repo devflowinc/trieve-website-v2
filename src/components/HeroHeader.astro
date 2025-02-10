@@ -1,17 +1,15 @@
 ---
-import { nullable } from "astro:schema";
 import Button from "./shared/Button.astro";
 
 interface Props {
   title: string;
   leadText?: string;
   tagline?: string;
-  actions?: Array<{
-    id: string;
-    title: string;
+  actions?: ReadonlyArray<{
+    label: string;
     href: string;
     newTab: boolean;
-    variant: "primary" | "secondary";
+    variant: "primary" | "secondary" | "tertiary";
   }>;
 }
 

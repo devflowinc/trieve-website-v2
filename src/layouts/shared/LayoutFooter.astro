@@ -1,5 +1,171 @@
-<footer id="footer" class="container max-w-7xl mx-auto my-16">
-  <p class="text-center py-4">
-    &copy; {new Date().getFullYear()} Trieve.ai. All rights reserved.
-  </p>
+---
+import Soc2Image from "@assets/global/soc2.avif";
+import HipaaImage from "@assets/global/hipaa.avif";
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
+const supportLinks: FooterLink[] = [
+  { label: "Docs", href: "/docs" },
+  { label: "Matrix", href: "/matrix" },
+  { label: "Discord", href: "/discord" },
+];
+
+const companyLinks: FooterLink[] = [
+  { label: "About", href: "/about" },
+  { label: "Admin Dashboard", href: "/admin" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Trust Center", href: "/trust" },
+  { label: "GitHub", href: "https://github.com/trieve" },
+];
+
+const productLinks: FooterLink[] = [
+  { label: "Pricing", href: "/pricing" },
+  { label: "Developer Documentation", href: "/docs/dev" },
+  { label: "Typescript SDK", href: "/docs/sdk" },
+  { label: "HN Search Engine", href: "/hn" },
+];
+
+const comparisonLinks: FooterLink[] = [
+  { label: "vs Algolia", href: "/compare/algolia" },
+];
+
+const socialLinks = [
+  { icon: "sun", href: "#" },
+  { icon: "twitter", href: "#" },
+  { icon: "github", href: "#" },
+  { icon: "mastodon", href: "#" },
+  { icon: "discord", href: "#" },
+  { icon: "rss", href: "#" },
+];
+---
+
+<footer class="border-t border-stone-200 bg-white py-16">
+  <div class="container mx-auto max-w-7xl px-4">
+    <div class="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-5">
+      <!-- Compliance Section -->
+      <div class="flex flex-col gap-4">
+        <h2 class="text-lg font-semibold">Trieve</h2>
+
+        <div class="flex gap-4 mt-4">
+          <div class="flex flex-col items-center text-center">
+            <img
+              src={Soc2Image.src}
+              alt="SOC2 Type 2 Compliant"
+              class="h-16 w-16"
+            />
+            <span class="mt-2 text-xs block">SOC2 Type 2<br />Compliant</span>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <img src={HipaaImage.src} alt="HIPAA Compliant" class="h-16 w-16" />
+            <span class="mt-2 text-xs block">HIPAA<br />Compliant</span>
+          </div>
+        </div>
+        <div class="mt-4">
+          <p class="text-sm text-stone-600">+1 628-222-4090</p>
+          <a
+            href="mailto:humans@trieve.ai"
+            class="text-sm text-stone-600 hover:text-stone-900"
+          >
+            humans@trieve.ai
+          </a>
+        </div>
+        <p class="text-sm text-stone-500">
+          &copy; {new Date().getFullYear()} Trieve.ai. All rights reserved.
+        </p>
+      </div>
+
+      <!-- Navigation Sections -->
+      <div class="text-sm">
+        <h3 class="mb-4 font-semibold uppercase text-stone-500">Support</h3>
+        <ul class="space-y-2">
+          {
+            supportLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-stone-600 hover:text-stone-900 hover:underline"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="text-sm">
+        <h3 class="mb-4 font-semibold uppercase text-stone-500">Company</h3>
+        <ul class="space-y-2">
+          {
+            companyLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-stone-600 hover:text-stone-900 hover:underline"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="text-sm">
+        <h3 class="mb-4 font-semibold uppercase text-stone-500">Product</h3>
+        <ul class="space-y-2">
+          {
+            productLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-stone-600 hover:text-stone-900 hover:underline"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="text-sm">
+        <h3 class="mb-4 font-semibold uppercase text-stone-500">Comparisons</h3>
+        <ul class="space-y-2">
+          {
+            comparisonLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-stone-600 hover:text-stone-900 hover:underline"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="mt-8 flex justify-end gap-4">
+      {
+        socialLinks.map(({ icon, href }) => (
+          <a
+            href={href}
+            class="text-stone-400 hover:text-stone-600"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="sr-only">{icon}</span>
+            <i class={`bi bi-${icon}`} />
+          </a>
+        ))
+      }
+    </div>
+  </div>
 </footer>

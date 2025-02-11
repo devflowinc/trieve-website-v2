@@ -5,10 +5,14 @@ import {
   imageAndTextBlock,
   brandsBlock,
 } from "./src/lib/keystatic/blocks";
+import { articles } from "src/lib/keystatic/collections/articles";
 
 export default config({
   storage: {
     kind: "local",
+  },
+  collections: {
+    articles: articles,
   },
   singletons: {
     homepage: singleton({

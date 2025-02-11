@@ -4,6 +4,12 @@ import LayoutFooter from "./shared/LayoutFooter.astro";
 import AnimatedBackground from "./shared/AnimatedBackground.astro";
 
 import "../styles/global.css";
+
+interface Props {
+  contentClass?: string;
+}
+
+const { contentClass = "content" } = Astro.props;
 ---
 
 <!doctype html>
@@ -31,7 +37,9 @@ import "../styles/global.css";
   <body class="bg-amber-50 text-stone-800">
     <LayoutHeader />
     <main id="main" class="min-h-screen relative z-10 pb-16">
-      <slot />
+      <div class={contentClass}>
+        <slot />
+      </div>
     </main>
     <LayoutFooter />
     <AnimatedBackground />

@@ -3,12 +3,13 @@ interface Props {
   title: string;
   tagline?: string;
   leadText?: string;
+  role: "primary" | "secondary" | "tertiary" | "none";
 }
 
-const { title, tagline, leadText } = Astro.props;
+const { title, tagline, leadText, role } = Astro.props;
 ---
 
-<div class="flex flex-col gap-2 items-center justify-center">
+<div class="flex flex-col gap-2 items-center justify-center py-16">
   {
     tagline ? (
       <span class="text-purple-700 text-xs uppercase tracking-wid rounded-full bg-white/50 px-4 py-2">
@@ -16,8 +17,25 @@ const { title, tagline, leadText } = Astro.props;
       </span>
     ) : null
   }
-  <h2 class="text-4xl font-normal font-serif tracking-tighter text-balance">
-    {title}
-  </h2>
+  {
+    role === "primary" ? (
+      <h1 class="text-6xl font-normal font-serif tracking-tighter text-balance">
+        {title}
+      </h1>
+    ) : role === "secondary" ? (
+      <h2 class="text-5xl font-normal font-serif tracking-tighter text-balance">
+        {title}
+      </h2>
+    ) : role === "tertiary" ? (
+      <h3 class="text-4xl font-normal font-serif tracking-tighter text-balance">
+        {title}
+      </h3>
+    ) : (
+      <strong class="block text-3xl font-normal font-serif tracking-tighter text-balance">
+        {title}
+      </strong>
+    )
+  }
+
   {leadText ? <p class="text-gray-500">{leadText}</p> : null}
 </div>

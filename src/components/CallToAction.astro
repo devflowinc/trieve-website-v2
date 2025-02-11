@@ -1,18 +1,28 @@
 ---
 import LinkButton from "./shared/LinkButton.astro";
+
+interface Props {
+  title?: string;
+  leadText?: string;
+}
+
+const {
+  title = "Ready to get started?",
+  leadText = "Experience an AI-native, end-to-end, solution for the trends of today and tomorrow",
+} = Astro.props;
 ---
 
 <section class="py-8">
   <div
-    class="max-w-4xl mx-auto p-16 rounded-xl bg-white shadow-lg flex flex-col items-center gap-4"
+    class="max-w-4xl mx-auto p-16 rounded-xl bg-white shadow-lg flex flex-col items-center"
   >
-    <h2 class="text-4xl font-serif text-center">Ready to get started?</h2>
+    <h2 class="text-4xl font-serif text-center my-2">
+      {title}
+    </h2>
     <p class="text-lg">
-      Experience an AI-native, end-to-end, solution for the trends of today and
-      tomorrow
+      {leadText}
     </p>
-
-    <div class="flex flex-row justify-center gap-4">
+    <div class="flex flex-row justify-center gap-4 mt-4">
       <LinkButton
         href="https://dashboard.trieve.ai/"
         newTab

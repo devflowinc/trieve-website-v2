@@ -1,0 +1,64 @@
+title: E-commerce
+metaData:
+  title: Trieve provides AI-native conversational discovery solutions for ecommerce
+  description: >-
+    Build better, faster, and more relevant search and RAG with Trieve's
+    platform. Date recency biasing, re-ranker models, semantic search,
+    sub-sentence highlighting, document expansion, and more all in one service
+    that you can host yourself.
+pageHeader:
+  title: Conversational Discovery for any Ecommerce Experience
+  leadText: >-
+    Discovery isn't just search and recommendations. Consumers coming from
+    Google, Bing, and Perplexity all expect GenAI.
+contentBlocks:
+  content:
+    - discriminant: imageAndTextBlock
+      value:
+        header:
+          tagline: Offer Modern Discovery Experiences
+          title: All major search engines offer GenAI and now you can too
+        items:
+          - image: >-
+              /src/assets/images/blocks/e-commerce/contentBlocks/content/0/value/items/0/image.png
+            title: >-
+              Replicate the brick and mortar sales experience with personalized
+              GenAI 
+            description: >-
+              We help companies build unfair competitive advantages through
+              their search, discovery, and RAG 
+            items:
+              - title: Allow Exploration of Your Entire Inventory
+                description: >-
+                  Keyword search is no longer enough. Let your customers explore
+                  your entire inventory with GenAI sales agent.
+              - title: Peronalize Based on User Intent
+                description: >-
+                  Our AI tracks user intent across your site just like a sales
+                  associate on the floor. Each conversation is unique.
+              - title: 24/7/365 Sales Associate
+                description: >-
+                  Our AI is always on and always ready to help. No more waiting
+                  for a sales associate to be available.
+          - image: >-
+              /src/assets/images/blocks/e-commerce/contentBlocks/content/0/value/items/1/image.png
+            title: Offer each individual visitor a personalized experience
+            items:
+              - title: >-
+                  Step 1: Our AI observes how your customers interact with your
+                  site
+                description: >-
+                  Based on purchase history, search history, and
+                  session-specific interactions, our AI builds a profile of each
+                  visitor.
+              - title: >-
+                  Step 2: Request recommendations, search results, or GenAI
+                  completions from our API
+                description: >-
+                  Trieve offers an athletic 70+ route API that can be integrated
+                  into any stack.
+              - title: 'Step 3: Measure the impact of GenAI on your bottom line'
+                description: >-
+                  Our analytics dashboard shows you how GenAI is impacting your
+                  bottom line and tells you how it plans to improve itself.
+              - title: Ready!

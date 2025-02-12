@@ -7,6 +7,7 @@ export const articles = collection({
   format: {
     contentField: "content",
   },
+  columns: ["title", "summary", "date", "category", "isDraft"],
   schema: {
     title: fields.slug({
       name: {

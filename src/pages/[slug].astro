@@ -1,0 +1,37 @@
+---
+import { Debug } from "astro:components";
+
+import SectionHeader from "@components/shared/SectionHeader.astro";
+import PageContent from "@components/PageContent.astro";
+import { keystatic } from "@lib/keystatic/client";
+import Layout from "@layouts/Layout.astro";
+import CallToAction from "@components/CallToAction.astro";
+
+// Generate paths for all blog posts
+export async function getStaticPaths() {
+  const pages = await keystatic.collections.pages.all();
+
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+}
+
+// Get page data for current page
+const { page } = Astro.props;
+
+const { pageHeader, contentBlocks } = page.entry;
+---
+
+<Layout>
+  <SectionHeader
+    role="primary"
+    tagline={pageHeader.tagline}
+    title={pageHeader.title}
+    leadText={pageHeader.leadText}
+  />
+  <PageContent content={contentBlocks.content} />
+
+  {/* Append a call to action section for every page */}
+  <CallToAction />
+</Layout>

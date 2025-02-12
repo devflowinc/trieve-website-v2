@@ -6,6 +6,7 @@ const baseHeaderFields = {
   leadText: fields.text({ label: "Lead Text" }),
 };
 
+// Generic section header block
 export const headerBlock = {
   label: "Section Header Block",
   schema: fields.object({
@@ -105,3 +106,38 @@ export const brandsBlock = {
     ),
   }),
 };
+
+// Shared content blocks (@deprecated)
+export const content = fields.blocks(
+  {
+    headerBlock: headerBlock,
+    featuresBlock: featuresBlock,
+    imageAndTextBlock: imageAndTextBlock,
+    brandsBlock: brandsBlock,
+  },
+  {
+    label: "Content Sections",
+    description: "The dynamic content blocks to display on the homepage",
+  }
+);
+
+export const contentBlocks = fields.object(
+  {
+    content: fields.blocks(
+      {
+        headerBlock: headerBlock,
+        featuresBlock: featuresBlock,
+        imageAndTextBlock: imageAndTextBlock,
+        brandsBlock: brandsBlock,
+      },
+      {
+        label: "Content blocks",
+        description: "Add and reorder various content blocks on the page.",
+      }
+    ),
+  },
+  {
+    label: "Page Content",
+    description: "The dynamic content sections to display on the page.",
+  }
+);

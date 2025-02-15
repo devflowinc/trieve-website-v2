@@ -21,19 +21,19 @@ const { title, tagline, leadText, role } = Astro.props;
   }
   {
     role === "primary" ? (
-      <h1 class="text-6xl text-stone-800 font-normal font-serif tracking-tighter text-balance max-w-4xl">
+      <h1 class="text-4xl lg:text-5xl xl:text-6xl text-stone-800 font-normal font-serif tracking-tighter text-balance max-w-4xl">
         {title}
       </h1>
     ) : role === "secondary" ? (
-      <h2 class="text-5xl text-stone-800 font-normal font-serif tracking-tighter text-balance max-w-4xl ">
+      <h2 class="text-3xl lg:text-4xl xl:text-5xl text-stone-800 font-normal font-serif tracking-tighter text-balance max-w-4xl ">
         {title}
       </h2>
     ) : role === "tertiary" ? (
-      <h3 class="text-4xl text-stone-800 font-normal font-serif tracking-tighter text-balance max-w-4xl ">
+      <h3 class="text-2xl lg:text-3xl xl:text-4xl text-stone-800 font-normal font-serif tracking-tighter text-balance max-w-4xl ">
         {title}
       </h3>
     ) : (
-      <strong class="block text-3xl text-stone-800 font-normal font-serif tracking-tighter text-balance max-w-4xl">
+      <strong class="block text-xxl lg:text-2xl xl:text-3xl text-stone-800 font-normal font-serif tracking-tighter text-balance max-w-4xl">
         {title}
       </strong>
     )
@@ -41,7 +41,7 @@ const { title, tagline, leadText, role } = Astro.props;
 
   {
     leadText ? (
-      <p class="text-xl font-light text-stone-600 max-w-4xl text-balance">
+      <p class="text-base lg:text-lg xl:text-xl font-light text-stone-600 max-w-4xl text-balance">
         {leadText}
       </p>
     ) : null

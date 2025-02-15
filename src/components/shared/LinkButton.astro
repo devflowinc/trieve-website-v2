@@ -14,8 +14,8 @@ const { href, newTab, variant, size = "default" } = Astro.props;
   class:list={[
     "rounded-full shadow-md border-2 transition-all hover:shadow-lg",
     {
-      "p-4 px-6": size === "default",
-      "p-2 px-4": size === "compact",
+      "py-2 px-4 lg:py-4 lg:px-6": size === "default",
+      "py-1 px-2 lg:py-2 lg:px-4": size === "compact",
       "bg-purple-700 text-white border-purple-700 hover:bg-purple-800":
         variant === "primary",
       "bg-white text-purple-700 border-purple-700 hover:bg-purple-50 hover:text-purple-800":

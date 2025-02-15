@@ -23,10 +23,10 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     title="Trieve blog"
     leadText="Detailed articles about search, discovery, relevance, RAG, and more from the Trieve team."
   />
-  <div class="container max-w-5xl mx-auto my-16">
+  <div class="container max-w-5xl mx-auto my-16 px-4">
     {
       blogEntries.map((item) => (
-        <div class="my-16 grid grid-cols-2 gap-8 items-center">
+        <div class="my-16 grid grid-cols-1 md:grid-cols-2 md:gap-8 items-center">
           <div>
             {item.entry.coverImage && images[item.entry.coverImage] ? (
               <a
@@ -39,11 +39,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                   class="rounded-xl shadow-lg"
                 />
               </a>
-            ) : (
-              "Image not found"
-            )}
+            ) : null}
           </div>
-          <div class="flex flex-col gap-4 py-4">
+          <div class="flex flex-col gap-4 py-4 px-4 md:px-0">
             <div class="text-sm">
               {item.entry.date ? (
                 <time>

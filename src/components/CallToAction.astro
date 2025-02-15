@@ -12,16 +12,14 @@ const {
 } = Astro.props;
 ---
 
-<section class="py-8">
+<section class="py-8 px-4">
   <div
-    class="max-w-4xl mx-auto p-16 rounded-xl bg-white shadow-lg flex flex-col items-center"
+    class="max-w-4xl mx-auto p-16 rounded-xl bg-white shadow-lg flex flex-col items-center text-center"
   >
-    <h2 class="text-4xl font-serif text-center my-2">
+    <h2 class="text-2xl lg:text-3xl xl:text-4xl font-serif text-center my-2">
       {title}
     </h2>
-    <p class="text-lg">
-      {leadText}
-    </p>
+    <p class="text-base lg:text-lg">{leadText}</p>
     <div class="flex flex-row justify-center gap-4 mt-4">
       <LinkButton
         href="https://dashboard.trieve.ai/"

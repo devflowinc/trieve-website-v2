@@ -36,10 +36,10 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   <div class="container mx-auto">
     <SectionHeader role="secondary" {...header} />
 
-    <div class="flex flex-col gap-16">
+    <div class="flex flex-col gap-4 md:gap-16">
       {
         items?.map((item) => (
-          <div class="grid grid-cols-2 gap-16 items-center bg-amber-50/50 rounded-lg py-16 px-8 overflow-hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center bg-amber-50/50 rounded-lg py-8 md:py-16 px-8 overflow-hidden">
             <div>
               {item.image && images[item.image].default ? (
                 <Image
@@ -51,7 +51,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                 />
               ) : null}
             </div>
-            <div class="flex flex-col py-8 pr-16">
+            <div class="flex flex-col py-4 md:py-8 md:pr-16 text-center md:text-left">
               <strong class="block my-4">{item.tagline}</strong>
               <h3 class="text-3xl font-normal font-serif tracking-tighter text-balance">
                 {item.title}

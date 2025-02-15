@@ -27,7 +27,7 @@ const coverImage = postData.coverImage as ImageMetadata;
 ---
 
 <Layout>
-  <div class="container mx-auto max-w-5xl">
+  <div class="container mx-auto max-w-5xl px-4">
     <div class="block py-16 mx-auto">
       <div class="text-sm text-gray-500 mb-4">
         <time datetime={postData.date.toDateString()}>
@@ -50,7 +50,7 @@ const coverImage = postData.coverImage as ImageMetadata;
 
         {
           coverImage ? (
-            <div class="my-8 -mx-16 not-prose">
+            <div class="my-8 -mx-3 md:-mx-16 not-prose">
               <Image
                 src={coverImage}
                 alt={postData.title}

@@ -8,21 +8,19 @@ Inside of the project, you'll see the following folders and files:
 
 ```text
 /
-├── public/
-│   └── favicon.svg
+├── public/ - Static files
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   ├── lib/
-│   ├── pages/
-│   │   └── index.astro
-│   ├── styles/
-│   └── content.config.ts
-├── astro.config.mjs
-├── keystatic.config.ts
+│   ├── assets/ - Images, fonts, etc. (also assets uploaded through Keystatic)
+│   ├── components/ - Reusable Astro components
+│   ├── content/ - Markdown files for content (managed by Keystatic)
+│   ├── layouts/ - Layout Astro components
+│   ├── lib/ - Utility functions (e.g. fetching data)
+│   │   └── keystatic/ - Keystatic API client, collection types and definitions
+│   ├── pages/ - Astro pages
+│   ├── styles/ - Global styles
+│   └── content.config.ts - Configuration for Astro content components
+├── astro.config.mjs - Astro configuration
+├── keystatic.config.ts - Keystatic configuration
 └── package.json
 ```
 

@@ -2,7 +2,7 @@ import { singleton } from "@keystatic/core";
 
 import { metaData } from "../shared/metadata";
 import { heroHeader } from "../shared/hero-header";
-import { content } from "../shared/content-blocks";
+import { contentBlocks } from "../shared/content-blocks";
 
 export const homepage = singleton({
   label: "Homepage",
@@ -10,6 +10,6 @@ export const homepage = singleton({
   schema: {
     metaData,
     heroHeader,
-    content,
+    contentBlocks,
   },
 });

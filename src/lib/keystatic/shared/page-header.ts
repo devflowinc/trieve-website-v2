@@ -1,10 +1,9 @@
 import { fields } from "@keystatic/core";
+import { baseHeaderFields } from "./base";
 
 export const pageHeader = fields.object(
   {
-    tagline: fields.text({ label: "Tagline" }),
-    title: fields.text({ label: "Title" }),
-    leadText: fields.text({ label: "Lead Text" }),
+    ...baseHeaderFields,
   },
   {
     label: "Page Header",

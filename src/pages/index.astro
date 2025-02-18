@@ -13,12 +13,12 @@ const homepageContent = await keystatic.singletons.homepage.read();
 invariant(homepageContent, "No homepage content found");
 
 const heroHeader = homepageContent.heroHeader;
-const pageContent = homepageContent.content;
+const pageContent = homepageContent.contentBlocks;
 ---
 
 <Layout>
   <HeroHeader {...heroHeader} />
-  <PageContent content={pageContent} />
+  <PageContent content={pageContent.content} />
 
   {/* Append a call to action section for the homepage */}
   <CallToAction />

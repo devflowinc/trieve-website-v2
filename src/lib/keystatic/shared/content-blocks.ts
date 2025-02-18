@@ -1,10 +1,5 @@
 import { fields } from "@keystatic/core";
-
-const baseHeaderFields = {
-  tagline: fields.text({ label: "Tagline" }),
-  title: fields.text({ label: "Title" }),
-  leadText: fields.text({ label: "Lead Text" }),
-};
+import { baseHeaderFields } from "./base";
 
 // Generic section header block
 export const headerBlock = {
@@ -107,20 +102,7 @@ export const brandsBlock = {
   }),
 };
 
-// Shared content blocks (@deprecated)
-export const content = fields.blocks(
-  {
-    headerBlock: headerBlock,
-    featuresBlock: featuresBlock,
-    imageAndTextBlock: imageAndTextBlock,
-    brandsBlock: brandsBlock,
-  },
-  {
-    label: "Content Sections",
-    description: "The dynamic content blocks to display on the homepage",
-  }
-);
-
+// Dynamic section of content blocks
 export const contentBlocks = fields.object(
   {
     content: fields.blocks(

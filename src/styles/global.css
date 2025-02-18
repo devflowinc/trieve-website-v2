@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@source "../components/"
+@source "../components/";
 
 @theme {
   --font-serif:

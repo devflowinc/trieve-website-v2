@@ -1,6 +1,4 @@
 ---
-import { Debug } from "astro:components";
-
 import SectionHeader from "@components/shared/SectionHeader.astro";
 import PageContent from "@components/PageContent.astro";
 import { keystatic } from "@lib/keystatic/client";
@@ -19,7 +17,6 @@ export async function getStaticPaths() {
 
 // Get page data for current page
 const { page } = Astro.props;
-
 const { pageHeader, contentBlocks } = page.entry;
 ---
 

@@ -16,6 +16,11 @@ export default defineConfig({
   },
   integrations: [react(), markdoc(), keystatic()],
   vite: {
+    resolve: {
+      alias: {
+        "@": "/src",
+      },
+    },
     plugins: [tailwindcss()],
   },
 });

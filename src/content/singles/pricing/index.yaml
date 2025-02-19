@@ -1,0 +1,85 @@
+metaData: {}
+pageHeader:
+  title: Pricing
+  leadText: >-
+    Unlimited search requests + full AI, merchandising studio & analytics tools
+    included on all plans. No credit card required.
+pricingPlans:
+  plans:
+    - name: Free Cloud
+      description: Get started for free
+      price: $0
+      features:
+        - name: chunks
+          value: 1,000 vectorized and stored chunks/records
+        - name: rps
+          value: 10 requests per second rate limit
+        - name: datasets
+          value: 10 datasets
+        - name: users
+          value: 5 users
+        - name: genAI
+          value: 1,000 gen AI messages
+        - name: storage
+          value: 1gb S3 file storage
+        - name: onboarding
+          value: Guided Onboarding
+      action:
+        label: Get started for free
+        href: https://dashboard.trieve.ai/
+        newTab: true
+        variant: secondary
+    - name: Dev Cloud
+      description: Great for commercial projects
+      price: $25
+      features:
+        - name: chunks
+          value: 100,000 vectorized and stored chunks/records
+        - name: rps
+          value: 10 requests per second rate limit
+        - name: datasets
+          value: 100 datasets
+        - name: users
+          value: 5 users
+        - name: genAI
+          value: 10,000 gen AI messages
+        - name: storage
+          value: 10gb S3 file storage
+        - name: onboarding
+          value: Guided Onboarding
+      action:
+        label: Get started for free
+        href: https://dashboard.trieve.ai/
+        newTab: true
+        variant: secondary
+    - name: Enterprise
+      description: Self hosting available
+      price: Talk to sales
+      highlight: Flagship
+      features:
+        - name: chunks
+          value: Unlimited vectorized and stored chunks/records
+        - name: rps
+          value: Up to 1000 requests per second rate limit
+        - name: datasets
+          value: Unlimited datasets
+        - name: users
+          value: Unlimited users
+        - name: genAI
+          value: Unlimited gen AI messages
+        - name: storage
+          value: Unlimited file storage
+        - name: onboarding
+          value: 1 hour maximum response time and guided onboarding
+        - name: custom-embedding
+          value: Load your own custom embedding, LLMs, and reranking models},
+      action:
+        label: humans@trieve.ai
+        href: mailto:humans@trieve.ai
+        newTab: true
+        variant: secondary
+closingText: >
+  No credit card required. See self-hosting options here: [Docker Compose
+  VPS](https://docs.trieve.ai/self-hosting/docker-compose), [AWS
+  EKS](https://docs.trieve.ai/self-hosting/aws) , [GCP
+  GKE](https://docs.trieve.ai/self-hosting/gcp).

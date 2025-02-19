@@ -1,74 +1,28 @@
 ---
-import SectionHeader from "@components/shared/SectionHeader.astro";
-import Layout from "@layouts/Layout.astro";
-import CallToAction from "@components/CallToAction.astro";
-import PricingTier from "@components/shared/PricingTier.astro";
+import invariant from "tiny-invariant";
 
-const pricingTiers = [
-  {
-    name: "FREE CLOUD",
-    price: 0,
-    period: "per month",
-    features: [
-      { text: "1,000 vectorized and stored chunks/records" },
-      { text: "10 requests per second rate limit" },
-      { text: "10 datasets" },
-      { text: "5 users" },
-      { text: "1,000 gen AI messages" },
-      { text: "1gb S3 file storage" },
-      { text: "Guided Onboarding" },
-    ],
-    ctaText: "Get started free",
-    ctaLink: "#",
-  },
-  {
-    name: "DEV CLOUD",
-    price: 25,
-    period: "per month",
-    features: [
-      { text: "100,000 vectorized and stored chunks/records" },
-      { text: "10 requests per second rate limit" },
-      { text: "100 datasets" },
-      { text: "5 users" },
-      { text: "10,000 gen AI messages" },
-      { text: "10gb S3 file storage" },
-      { text: "Guided Onboarding" },
-    ],
-    ctaText: "Get started free",
-    ctaLink: "#",
-  },
-  {
-    name: "ENTERPRISE",
-    price: "Talk to sales",
-    period: "",
-    subtitle: "self hosting available",
-    features: [
-      { text: "Unlimited vectorized and stored chunks/records" },
-      { text: "Unlimited datasets" },
-      { text: "Unlimited file storage" },
-      { text: "Up to 99.99% uptime SLA and VPC Peering" },
-      { text: "Up to 1000RPS and 125ms P95 latency SLO" },
-      { text: "1 hour maximum response time and guided onboarding" },
-      { text: "Load your own custom embedding, LLMs, and reranking models" },
-    ],
-    ctaText: "humans@trieve.ai",
-    ctaLink: "mailto:humans@trieve.ai",
-    popular: true,
-  },
-];
+import { keystatic } from "@lib/keystatic/client";
+import SectionHeader from "@components/shared/SectionHeader.astro";
+import CallToAction from "@components/CallToAction.astro";
+import PricingPlans from "@components/PricingPlans.astro";
+import Layout from "@layouts/Layout.astro";
+
+const pageContent = await keystatic.singletons.pricing.read();
+invariant(pageContent, "No homepage content found");
+
+const { pageHeader, pricingPlans } = pageContent;
 ---
 
 <Layout contentClass="py-8 px-4">
   <div class="container max-w-7xl mx-auto">
     <SectionHeader
       role="primary"
-      title="Pricing"
-      leadText="Unlimited search requests + full AI, merchandising studio & analytics tools included on all plans. No credit card required."
+      tagline={pageHeader.tagline}
+      title={pageHeader.title}
+      leadText={pageHeader.leadText}
     />
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-      {pricingTiers.map((tier) => <PricingTier tier={tier} />)}
-    </div>
+    <PricingPlans plans={pricingPlans.plans} />
 
     <div class="text-center mb-16">
       <p class="text-gray-600">
@@ -83,6 +37,7 @@ const pricingTiers = [
         .
       </p>
     </div>
+
     <CallToAction
       title="Still unsure? Reduce your risk with a custom demo!"
       leadText="Get a personalized walkthrough of Trieve with our team."

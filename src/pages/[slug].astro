@@ -17,10 +17,10 @@ export async function getStaticPaths() {
 
 // Get page data for current page
 const { page } = Astro.props;
-const { pageHeader, contentBlocks } = page.entry;
+const { metaData, pageHeader, contentBlocks } = page.entry;
 ---
 
-<Layout>
+<Layout pageTitle={metaData.title} pageDescription={metaData.description}>
   <SectionHeader
     role="primary"
     tagline={pageHeader.tagline}

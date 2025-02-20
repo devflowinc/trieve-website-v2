@@ -6,10 +6,17 @@ import AnimatedBackground from "./shared/AnimatedBackground.astro";
 import "@/styles/global.css";
 
 interface Props {
+  pageTitle?: string;
+  pageDescription?: string;
   contentClass?: string;
 }
 
-const { contentClass = "content" } = Astro.props;
+const defaultTitle =
+  "AI-First infrastructure API for search, recommendations, and personalization";
+const defaultDescription =
+  "Trieve is an AI-powered search infrastructure helping companies build search, recommendations, and personalization features in their products.";
+
+const { contentClass = "content", pageTitle, pageDescription } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,14 +29,8 @@ const { contentClass = "content" } = Astro.props;
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
-    <title>
-      AI-First infrastructure API for search, recommendations, and
-      personalization - Trieve.ai
-    </title>
-    <meta
-      name="description"
-      content="Trieve is an AI-powered search infrastructure helping companies build search, recommendations, and personalization features in their products."
-    />
+    <title>{pageTitle || defaultTitle} — Trieve</title>
+    <meta name="description" content={pageDescription || defaultDescription} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

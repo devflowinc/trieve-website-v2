@@ -1,6 +1,6 @@
 title: E-commerce
 metaData:
-  title: Trieve provides AI-native conversational discovery solutions for ecommerce
+  title: Conversational Discovery for any Ecommerce Experience
   description: >-
     Build better, faster, and more relevant search and RAG with Trieve's
     platform. Date recency biasing, re-ranker models, semantic search,
@@ -61,4 +61,4 @@ contentBlocks:
                 description: >-
                   Our analytics dashboard shows you how GenAI is impacting your
                   bottom line and tells you how it plans to improve itself.
-              - title: Ready!
+              - title: 'Step 4: Ready!'

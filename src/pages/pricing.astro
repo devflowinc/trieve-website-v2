@@ -10,10 +10,14 @@ import Layout from "@layouts/Layout.astro";
 const pageContent = await keystatic.singletons.pricing.read();
 invariant(pageContent, "No homepage content found");
 
-const { pageHeader, pricingPlans } = pageContent;
+const { metaData, pageHeader, pricingPlans } = pageContent;
 ---
 
-<Layout contentClass="py-8 px-4">
+<Layout
+  contentClass="py-8 px-4"
+  pageTitle={metaData.title || pageHeader.title}
+  pageDescription={metaData.description}
+>
   <div class="container max-w-7xl mx-auto">
     <SectionHeader
       role="primary"

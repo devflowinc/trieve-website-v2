@@ -14,14 +14,18 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     eager: true,
   }
 );
+
+const pageTitle = "Trieve blog";
+const pageDescription =
+  "Detailed articles about search, discovery, relevance, RAG, and more from the Trieve team.";
 ---
 
-<Layout contentClass="py-8">
-  <SectionHeader
-    role="primary"
-    title="Trieve blog"
-    leadText="Detailed articles about search, discovery, relevance, RAG, and more from the Trieve team."
-  />
+<Layout
+  contentClass="py-8"
+  pageTitle={pageTitle}
+  pageDescription={pageDescription}
+>
+  <SectionHeader role="primary" title={pageTitle} leadText={pageDescription} />
   <div class="container max-w-5xl mx-auto my-16 px-4">
     {
       blogEntries.map((item) => (

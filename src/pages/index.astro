@@ -10,13 +10,12 @@ import CallToAction from "@components/CallToAction.astro";
 const homepageContent = await keystatic.singletons.homepage.read();
 invariant(homepageContent, "No homepage content found");
 
-const heroHeader = homepageContent.heroHeader;
-const pageContent = homepageContent.contentBlocks;
+const { metaData, heroHeader, contentBlocks } = homepageContent;
 ---
 
-<Layout>
+<Layout pageTitle={metaData.title} pageDescription={metaData.description}>
   <HeroHeader {...heroHeader} />
-  <PageContent content={pageContent.content} />
+  <PageContent content={contentBlocks.content} />
 
   {/* Append a call to action section for the homepage */}
   <CallToAction />

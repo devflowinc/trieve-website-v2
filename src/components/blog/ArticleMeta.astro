@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  author: CollectionEntry<"authors">;
+  date: Date;
+  category: string;
+}
+
+const { author, date, category } = Astro.props;
+const avatar = author.data.avatar as ImageMetadata;
+
+const avatarLetters = author.data.name
+  .split(" ")
+  .slice(0, 2)
+  .map((name) => name[0])
+  .join("");
+---
+
+<div class="flex flex-row items-center gap-4">
+  {
+    avatar ? (
+      <Image
+        src={avatar}
+        alt={author.data.name}
+        class="w-16 h-16 rounded-full"
+      />
+    ) : (
+      <div class="w-16 h-16 bg-gray-200 rounded-full p-1 text-3xl text-center text-gray-400 leading-14 font-light">
+        {avatarLetters}
+      </div>
+    )
+  }
+  <div class="text-sm text-gray-500">
+    <p>
+      By {author.data.name}
+      in {category}
+      <time datetime={date.toDateString()} class="block">
+        {
+          date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </time>
+    </p>
+  </div>
+</div>

@@ -1,5 +1,18 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 import { glob } from "astro/loaders";
+
+const authors = defineCollection({
+  loader: glob({
+    pattern: "**/*.yaml",
+    base: "./src/content/authors",
+  }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      bio: z.string().optional(),
+      avatar: image().optional(),
+    }),
+});
 
 const articles = defineCollection({
   loader: glob({
@@ -12,6 +25,7 @@ const articles = defineCollection({
       summary: z.string(),
       date: z.date(),
       isDraft: z.boolean(),
+      author: reference("authors"),
       category: z.string(),
       coverImage: image(),
     }),
@@ -19,4 +33,5 @@ const articles = defineCollection({
 
 export const collections = {
   articles,
+  authors,
 };

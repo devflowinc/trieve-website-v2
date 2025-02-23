@@ -1,7 +1,7 @@
 import { collection, fields } from "@keystatic/core";
 
 export const articles = collection({
-  label: "Articles",
+  label: "Blog Articles",
   path: "src/content/articles/*/",
   slugField: "title",
   format: {
@@ -21,10 +21,23 @@ export const articles = collection({
       },
     }),
     summary: fields.text({ label: "Summary", multiline: true }),
-    date: fields.date({ label: "Date" }),
+    date: fields.date({
+      label: "Date",
+      validation: {
+        isRequired: true,
+      },
+    }),
     isDraft: fields.checkbox({
       label: "Draft",
       description: "Is this a draft?",
+    }),
+    author: fields.relationship({
+      label: "Author",
+      description: "The author of the post",
+      collection: "authors",
+      validation: {
+        isRequired: true,
+      },
     }),
     category: fields.select({
       label: "Category",

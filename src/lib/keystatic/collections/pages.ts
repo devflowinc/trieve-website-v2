@@ -1,30 +1,17 @@
-import { collection, fields } from "@keystatic/core";
+import { collection } from "@keystatic/core";
 
 import { metaData } from "../shared/metadata";
 import { pageHeader } from "../shared/page-header";
 import { contentBlocks } from "../shared/content-blocks";
+import { title } from "../shared/title";
 
 export const pages = collection({
-  label: "Pages",
+  label: "Content pages",
   path: "src/content/pages/*/",
   slugField: "title",
   columns: ["title"],
   schema: {
-    title: fields.slug({
-      name: {
-        label: "Page title",
-        description: "The name of the page (may be used in navigation, etc.)",
-        validation: {
-          isRequired: true,
-        },
-      },
-      // Optional slug label overrides
-      slug: {
-        label: "SEO-friendly slug",
-        description:
-          "The unique, URL-friendly slug for the page (don't include slashes in front)",
-      },
-    }),
+    title,
     metaData,
     pageHeader,
     contentBlocks,

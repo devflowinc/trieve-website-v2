@@ -1,7 +1,7 @@
 import { collection, fields } from "@keystatic/core";
 
 export const authors = collection({
-  label: "Blog Authors",
+  label: "Blog authors",
   path: "src/content/authors/*/",
   slugField: "name",
   columns: ["name", "bio"],

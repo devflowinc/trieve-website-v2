@@ -1,0 +1,38 @@
+---
+import { keystatic } from "@lib/keystatic/client";
+import Layout from "@layouts/Layout.astro";
+import MarkdocRenderer from "@components/shared/MarkdocRenderer.astro";
+
+// Generate paths for all blog posts
+export async function getStaticPaths() {
+  const pages = await keystatic.collections.legalPages.all();
+
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { title, metaData, content } = page.entry;
+
+const pageTitle = metaData.title || title;
+const pageDescription = metaData.description;
+---
+
+<Layout pageTitle={pageTitle} pageDescription={pageDescription}>
+  <div class="container mx-auto px-12">
+    <div
+      class="max-w-none prose prose-lg prose-stone prose-headings:font-serif prose-img:rounded-md prose-img:shadow-md prose-img:p-2 prose-img:bg-white"
+    >
+      <h1
+        class="mt-16 text-4xl lg:text-5xl xl:text-6xl text-stone-800 font-normal font-serif tracking-tighter text-balance max-w-4xl"
+      >
+        {title}
+      </h1>
+      <div class="max-w-4xl">
+        <MarkdocRenderer contentFn={content} />
+      </div>
+    </div>
+  </div>
+</Layout>

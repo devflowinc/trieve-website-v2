@@ -1,0 +1,24 @@
+---
+import Markdoc, { type Node } from "@markdoc/markdoc";
+
+interface Props {
+  contentFn: () => Promise<{
+    node: Node;
+  }>;
+}
+
+const { contentFn } = Astro.props;
+
+const content = await contentFn();
+
+const errors = Markdoc.validate(content.node);
+
+if (errors.length) {
+  throw new Error(errors.join("\n"));
+}
+
+const transformed = Markdoc.transform(content.node);
+const html = Markdoc.renderers.html(transformed);
+---
+
+<div set:html={html} />

@@ -6,13 +6,20 @@ import react from "@astrojs/react";
 import markdoc from "@astrojs/markdoc";
 import sitemap from "@astrojs/sitemap";
 
+const isDev = process.env.NODE_ENV !== "production";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://trieve.ai/",
   devToolbar: {
     enabled: false,
   },
-  integrations: [react(), markdoc(), keystatic(), sitemap()],
+  integrations: [
+    react(),
+    markdoc(),
+    sitemap(),
+    ...(isDev ? [keystatic()] : []),
+  ],
   vite: {
     resolve: {
       alias: {

@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/content/articles/**/*.{jpeg,jpg,png,gif,webp,avif,svg}",
+  {
+    eager: true,
+  }
+);
+
+const localImage = images[src];
+---
+
+<div class="markdoc-image">
+  {
+    localImage?.default ? (
+      <Image src={localImage.default} alt={alt} class="markdoc-image__img" />
+    ) : (
+      <img src={src} alt={alt} class="markdoc-image__img--static" />
+    )
+  }
+</div>

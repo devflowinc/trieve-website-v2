@@ -12,9 +12,6 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  image: {
-    domains: ["127.0.0.1"],
-  },
   integrations: [react(), markdoc(), keystatic(), sitemap()],
   vite: {
     resolve: {

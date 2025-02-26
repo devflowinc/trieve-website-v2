@@ -7,7 +7,7 @@ export const articles = collection({
   format: {
     contentField: "content",
   },
-  columns: ["title", "summary", "date", "category", "isDraft"],
+  columns: ["title", "summary", "date", "category", "author", "isDraft"],
   schema: {
     title: fields.slug({
       name: {
@@ -53,16 +53,16 @@ export const articles = collection({
     }),
     coverImage: fields.image({
       label: "Cover Image",
-      directory: "src/assets/images/articles",
-      publicPath: "/src/assets/images/articles/",
+      directory: "src/content/articles",
+      publicPath: "/src/content/posts/",
     }),
     content: fields.markdoc({
       label: "Content",
       description: "The content of the post",
       options: {
         image: {
-          directory: "src/assets/images/articles",
-          publicPath: "/src/assets/images/articles/",
+          directory: "src/content/posts",
+          publicPath: "/src/content/posts/",
         },
       },
     }),

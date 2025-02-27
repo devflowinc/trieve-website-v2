@@ -19,8 +19,8 @@ export const authors = collection({
     }),
     avatar: fields.image({
       label: "Avatar Image",
-      directory: "src/assets/images/authors",
-      publicPath: "/src/assets/images/authors/",
+      directory: "src/content/authors",
+      publicPath: "/src/content/authors/",
     }),
   },
 });

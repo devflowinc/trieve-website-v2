@@ -1,0 +1,43 @@
+---
+import SectionHeader from "@components/shared/SectionHeader.astro";
+import PageContent from "@components/PageContent.astro";
+import { keystatic } from "@lib/keystatic/client";
+import Layout from "@layouts/Layout.astro";
+import CallToAction from "@components/CallToAction.astro";
+import MarkdocRenderer from "@components/shared/MarkdocRenderer.astro";
+import CompareHeader from "@components/CompareHeader.astro";
+
+// Generate paths for all compare pages
+export async function getStaticPaths() {
+  const pages = await keystatic.collections.comparisons.all();
+
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+}
+
+// Get page data for current page
+const { page } = Astro.props;
+const { metaData, compareHeader, content } = page.entry;
+---
+
+<Layout pageTitle={metaData.title} pageDescription={metaData.description}>
+  <CompareHeader
+    tagline={compareHeader.tagline}
+    title={compareHeader.title}
+    leadText={compareHeader.leadText}
+    coverImage={compareHeader.coverImage}
+  />
+
+  <div class="mx-auto max-w-4xl my-16">
+    <div
+      class="max-w-none prose prose-lg prose-stone prose-headings:font-serif prose-img:rounded-md prose-img:shadow-md prose-img:p-2 prose-img:bg-white"
+    >
+      <MarkdocRenderer contentFn={content} />
+    </div>
+  </div>
+
+  {/* Append a call to action section for every page */}
+  <CallToAction />
+</Layout>

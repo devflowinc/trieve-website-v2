@@ -14,6 +14,7 @@ export const baseHeaderFields = {
   }),
   leadText: fields.text({
     label: "Lead Text",
+    multiline: true,
     description: "Lead text for the section (appears below the title)",
   }),
 };

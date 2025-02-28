@@ -1,0 +1,64 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  tagline?: string;
+  leadText?: string;
+  coverImage?: string;
+}
+
+const { title, tagline, leadText, coverImage } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/content/comparisons/**/*.{jpg,jpeg,png,gif,webp,avif}",
+  {
+    eager: true,
+  }
+);
+---
+
+<section class="container max-w-7xl mx-auto py-16 lg:py-20 xl:py-24">
+  <div
+    class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 xl:gap-8 items-center"
+  >
+    <div class="flex flex-col gap-8">
+      {
+        tagline ? (
+          <div>
+            <span class="text-purple-700 border text-xs uppercase tracking-wid rounded-full bg-white/50 px-4 py-2">
+              {tagline}
+            </span>
+          </div>
+        ) : null
+      }
+      <h1
+        class="text-4xl lg:text-5xl xl:text-6xl text-stone-800 font-normal font-serif tracking-tighter text-balance max-w-4xl"
+      >
+        {title}
+      </h1>
+
+      {
+        leadText ? (
+          <p class="text-base lg:text-lg xl:text-xl font-light text-stone-600 max-w-4xl text-balance">
+            {leadText}
+          </p>
+        ) : null
+      }
+    </div>
+    <div>
+      {
+        coverImage && images[coverImage] ? (
+          <Image
+            src={images[coverImage].default}
+            alt={title}
+            width={640}
+            class="w-full rounded-2xl shadow-md"
+          />
+        ) : (
+          "No image found"
+        )
+      }
+    </div>
+  </div>
+</section>

@@ -8,9 +8,10 @@ date: 2024-09-13
 isDraft: false
 author: skeptrune
 category: tutorials
+tags: Trieve, pgvector, vectordb
 coverImage: /src/content/articles/pg-vector-missing-features/coverImage.webp
 ---
-rieve’s infrastructure contains both [Postgres and a dedicated search engine](https://docs.trieve.ai/getting-started/introduction#system-diagram) which is not ideal. It would be great if we could use postgres by itself with pgvector, but it is not a complete solution. Here we explain what pgvector is missing beyond scalability.
+Trieve’s infrastructure contains both [Postgres and a dedicated search engine](https://docs.trieve.ai/getting-started/introduction#system-diagram) which is not ideal. It would be great if we could use postgres by itself with pgvector, but it is not a complete solution. Here we explain what pgvector is missing beyond scalability.
 
 If you need horizontal scaling due to vector count (~5+ million) or replication, postgres is not the right solution. However, that’s been discussed extensively elsewhere and we don’t want to rehash it.
 
@@ -24,7 +25,7 @@ Postgres does support `LIKE` queries which would allow you to semi-replicate thi
 
 Even if you build business logic and performance tune your postgres instance, it still won’t perform as well as a dedicated search solution with native prefix expansion. You don’t want a user requiring the term “postgres” to miss every result containing “PostgreSQL”. Dedicated search solutions like Trieve handle this in a way that postgres-oriented solutions cannot.
 
-![](/src/content/articles/pg-vector-missing-features/postgres-scalable.webp)
+![Postgres scaleable query](/src/content/articles/pg-vector-missing-features/postgres-scalable.webp)
 
 ## 2. Explainability With Highlights
 
@@ -34,11 +35,11 @@ We can spend our whole lives optimizing search systems and there will still be q
 
 Someone can look at the search results, see they are not ideal, and come up with reasoning for why such that they can self-correct. In the following scenario, they might consider replacing `async` with `parallel` as the highlights clearly indicate that `async` is the problem-phrase that the system is keying in on.
 
-![](/src/content/articles/pg-vector-missing-features/relation-of-async-optimizations.webp)
+![Relations of async optimizations query](/src/content/articles/pg-vector-missing-features/relation-of-async-optimizations.webp)
 
 If we replace `async` with `parallel`, voila! It works beautifully! It would be very difficult for a user to identify the problem and make that change without highlights.
 
-![](/src/content/articles/pg-vector-missing-features/relation-of-parallel-optimizations.webp)
+![Relations of paralell optimizations query](/src/content/articles/pg-vector-missing-features/relation-of-parallel-optimizations.webp)
 
 ## 3. Performant Filters and Order By’s
 

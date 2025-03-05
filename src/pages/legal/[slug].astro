@@ -3,7 +3,7 @@ import { keystatic } from "@lib/keystatic/client";
 import Layout from "@layouts/Layout.astro";
 import MarkdocRenderer from "@components/shared/MarkdocRenderer.astro";
 
-// Generate paths for all blog posts
+// Generate paths for all articles
 export async function getStaticPaths() {
   const pages = await keystatic.collections.legalPages.all();
 

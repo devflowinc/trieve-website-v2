@@ -27,7 +27,7 @@ const articles = defineCollection({
       isDraft: z.boolean(),
       author: reference("authors"),
       category: z.string(),
-      coverImage: image(),
+      coverImage: image().optional(),
     }),
 });
 

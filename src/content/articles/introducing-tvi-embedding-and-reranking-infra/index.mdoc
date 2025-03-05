@@ -5,8 +5,9 @@ date: 2024-11-13
 isDraft: false
 author: federico-chavez-torres
 category: explainers
+tags: TVI, self-hosting, AWS, embeddings
 coverImage: >-
-  /src/content/articles/introducing-tvi-embedding-and-reranking-infra-built-for-kube/coverImage.webp
+  /src/content/articles/introducing-tvi-embedding-and-reranking-infra/coverImage.webp
 ---
 ## Introducing Trieve Vector Inference
 
@@ -22,7 +23,7 @@ We put together TVI to eliminate these bottlenecks for our own core product. It�
 
 To start, here are our benchmarks:
 
-![](/src/content/articles/introducing-tvi-embedding-and-reranking-infra-built-for-kube/tvi-benchmarks-docs.png)
+![tvi-benchmarks-docs](/src/content/articles/introducing-tvi-embedding-and-reranking-infra/tvi-benchmarks-docs.png)
 
 At 1000 RPS, your P99 latency with cloud-based embeddings will range between 23.59 to 27.03 seconds. With Trieve, we’re still measuring in milliseconds. It’s literally an order of magnitude faster.
 
@@ -56,7 +57,7 @@ The cascading effects are brutal:
 
 Add in retries for rate limits and your “real-time” feature is now consistently 1+ second behind.
 
-![](/src/content/articles/introducing-tvi-embedding-and-reranking-infra-built-for-kube/sama-working-on-low-latency-embeddings.png)
+![sama-respect-to-the-prince](/src/content/articles/introducing-tvi-embedding-and-reranking-infra/sama-working-on-low-latency-embeddings.png)
 
 ### We hope you like the TVI DX
 

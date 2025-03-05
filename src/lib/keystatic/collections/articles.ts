@@ -1,4 +1,5 @@
 import { collection, fields } from "@keystatic/core";
+import { wrapper } from "@keystatic/core/content-components";
 
 export const articles = collection({
   label: "Blog articles",
@@ -51,19 +52,29 @@ export const articles = collection({
       ],
       defaultValue: "news",
     }),
+    tags: fields.text({
+      label: "Tags",
+      description: "Coma separated list of tags for the article",
+    }),
     coverImage: fields.image({
       label: "Cover Image",
       directory: "src/content/articles",
-      publicPath: "/src/content/posts/",
+      publicPath: "/src/content/articles/",
     }),
     content: fields.markdoc({
       label: "Content",
       description: "The content of the post",
       options: {
         image: {
-          directory: "src/content/posts",
-          publicPath: "/src/content/posts/",
+          directory: "src/content/articles",
+          publicPath: "/src/content/articles/",
         },
+      },
+      components: {
+        Callout: wrapper({
+          label: "Callout",
+          schema: {},
+        }),
       },
     }),
   },

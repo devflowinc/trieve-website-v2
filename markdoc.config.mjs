@@ -4,7 +4,12 @@ export default defineMarkdocConfig({
   nodes: {
     image: {
       ...nodes.image,
-      render: component("./src/components/shared/MarkdocImage.astro"),
+      render: component("./src/components/markdoc/ContentImage.astro"),
+    },
+  },
+  tags: {
+    Callout: {
+      render: component("./src/components/markdoc/Callout.astro"),
     },
   },
 });

@@ -1,0 +1,86 @@
+---
+import Button from "@components/shared/Button.astro";
+---
+
+<form name="request-demo" method="POST" data-netlify="true">
+  <div class="grid grid-cols-5 gap-8">
+    <div class="col-span-2 space-y-4">
+      <div class="form-row">
+        <label for="name" class="block text-sm font-semibold">Your Name:</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          required
+          class="block bg-stone-100 border border-gray-300 px-4 py-2 rounded-lg text-md w-full"
+        />
+      </div>
+      <div class="form-row">
+        <label for="email" class="block text-sm font-semibold"
+          >Your Email:</label
+        >
+        <input
+          type="email"
+          name="email"
+          id="email"
+          required
+          class="block bg-stone-100 border border-gray-300 px-4 py-2 rounded-lg text-md w-full"
+        />
+      </div>
+      <div class="form-row">
+        <label for="company" class="block text-sm font-semibold"
+          >Company Name:</label
+        >
+        <input
+          type="text"
+          name="company"
+          id="company"
+          class="block bg-stone-100 border border-gray-300 px-4 py-2 rounded-lg text-md w-full"
+        />
+      </div>
+      <div class="form-row">
+        <label for="phone" class="block text-sm font-semibold"
+          >Phone Number:</label
+        >
+        <input
+          type="tel"
+          name="phone"
+          id="phone"
+          class="block bg-stone-100 border border-gray-300 px-4 py-2 rounded-lg text-md w-full"
+        />
+      </div>
+      <div class="form-row">
+        <label for="website" class="block text-sm font-semibold">Website:</label
+        >
+        <input
+          type="url"
+          name="website"
+          id="website"
+          required
+          class="block bg-stone-100 border border-gray-300 px-4 py-2 rounded-lg text-md w-full"
+        />
+      </div>
+    </div>
+    <div class="col-span-3">
+      <div class="form-row">
+        <label for="use-case" class="block text-sm font-semibold"
+          >Describe your use case:</label
+        >
+        <textarea
+          name="use-case"
+          id="use-case"
+          required
+          rows="14"
+          class="block bg-stone-100 border border-gray-300 px-4 py-2 rounded-lg text-md w-full"
+          placeholder="Tell us about your business and how you plan to use our product."
+        ></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8">
+    <Button type="submit" variant="primary" size="compact">
+      Request demo →
+    </Button>
+  </div>
+</form>

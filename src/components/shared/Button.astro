@@ -1,0 +1,28 @@
+---
+interface Props {
+  type: "button" | "submit" | "reset";
+  variant: "primary" | "secondary" | "tertiary";
+  size?: "compact" | "default";
+  className?: string;
+}
+
+const { variant, size = "default", className, type } = Astro.props;
+---
+
+<button
+  type={type}
+  class:list={[
+    "rounded-lg shadow-md border-2 transition-all hover:shadow-lg",
+    {
+      "py-2 px-4 lg:py-4 lg:px-6": size === "default",
+      "py-1 px-2 lg:py-2 lg:px-4": size === "compact",
+      "bg-purple-700 text-white border-purple-700 hover:bg-purple-800":
+        variant === "primary",
+      "bg-white text-purple-700 border-purple-700 hover:bg-purple-50 hover:text-purple-800":
+        variant === "secondary",
+    },
+    className,
+  ]}
+>
+  <slot />
+</button>

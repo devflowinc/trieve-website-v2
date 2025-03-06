@@ -1,0 +1,46 @@
+---
+import Layout from "@layouts/Layout.astro";
+import SectionHeader from "@components/shared/SectionHeader.astro";
+import DemoForm from "@components/custom/DemoForm.astro";
+
+const title = "Request a Demo";
+const description =
+  "Request a demo of our product to see how it can help your business.";
+---
+
+<Layout pageTitle={title} pageDescription={description}>
+  <SectionHeader
+    role="primary"
+    title="See it for your use-case"
+    leadText="Share a link to your content and we'll create a free custom demo and send it to you. 24 hour turnaround."
+  />
+
+  <section class="py-4 max-w-7xl mx-auto flex flex-row gap-4 items-center">
+    <div class="bg-white p-8 rounded-xl shadow-lg max-w-4xl w-full shrink-0">
+      <h2 class="text-2xl font-semibold mb-2">Request a Demo</h2>
+      <p class="text-gray-600 mb-4">
+        Fill out the form below and we'll get back to you within 24 hours to
+        schedule a demo.
+      </p>
+
+      <DemoForm />
+    </div>
+
+    <div class="p-4 shrink">
+      <h3 class="text-2xl font-semibold mb-2">What to expect</h3>
+      <div class="flex flex-col space-y-4">
+        <div class="p-8 bg-white/50 rounded-lg">
+          We'll create a custom demo based on your content and use-case.
+        </div>
+        <div class="p-8 bg-white/50 rounded-lg">
+          You'll get a tour of Trieve platform to better understand how it can
+          help your business.
+        </div>
+        <div class="p-8 bg-white/50 rounded-lg">
+          We'll walk you through our pricing model and answer any questions you
+          may have about the plans & features.
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

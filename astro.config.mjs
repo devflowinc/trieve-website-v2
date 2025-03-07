@@ -6,6 +6,8 @@ import react from "@astrojs/react";
 import markdoc from "@astrojs/markdoc";
 import sitemap from "@astrojs/sitemap";
 
+import icon from "astro-icon";
+
 const isDev = process.env.NODE_ENV !== "production";
 
 // https://astro.build/config
@@ -19,6 +21,7 @@ export default defineConfig({
     markdoc(),
     sitemap(),
     ...(isDev ? [keystatic()] : []),
+    icon(),
   ],
   vite: {
     resolve: {

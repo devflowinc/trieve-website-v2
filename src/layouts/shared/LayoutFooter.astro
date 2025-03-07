@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 
 import Soc2Image from "@assets/global/soc2.avif";
 import HipaaImage from "@assets/global/hipaa.avif";
+import { Icon } from "astro-icon/components";
 
 interface FooterLink {
   label: string;
@@ -10,38 +11,45 @@ interface FooterLink {
 }
 
 const supportLinks: FooterLink[] = [
-  { label: "Docs", href: "/docs" },
-  { label: "Matrix", href: "/matrix" },
-  { label: "Discord", href: "/discord" },
+  { label: "Docs", href: "https://docs.trieve.ai/" },
+  { label: "Matrix", href: "https://matrix.to/#/#trieve-general:trieve.ai" },
+  { label: "Discord", href: "https://discord.gg/E9sPRZqpDT" },
+  { label: "+1 628-222-4090", href: "tel:+16282224090" },
+  { label: "humans@trieve.ai", href: "mailto:humans@trieve.ai" },
 ];
 
 const companyLinks: FooterLink[] = [
   { label: "About", href: "/about" },
-  { label: "Admin Dashboard", href: "/admin" },
+  { label: "Admin Dashboard", href: "https://dashboard.trieve.ai/" },
   { label: "Privacy Policy", href: "/legal/privacy-policy" },
   { label: "Terms of Service", href: "/legal/terms-of-service" },
-  { label: "Trust Center", href: "/trust" },
+  { label: "Trust Center", href: "https://trust.oneleet.com/trieve" },
   { label: "GitHub", href: "https://github.com/trieve" },
 ];
 
 const productLinks: FooterLink[] = [
   { label: "Pricing", href: "/pricing" },
-  { label: "Developer Documentation", href: "/docs/dev" },
-  { label: "Typescript SDK", href: "/docs/sdk" },
-  { label: "HN Search Engine", href: "/hn" },
+  { label: "Developer Documentation", href: "https://docs.trieve.ai/" },
+  { label: "Typescript SDK", href: "https://ts-sdk.trieve.ai/" },
+  { label: "HN Search Engine", href: "https://hn.trieve.ai/" },
 ];
 
 const comparisonLinks: FooterLink[] = [
-  { label: "vs Algolia", href: "/compare/algolia" },
+  { label: "vs Algolia", href: "/compare/trieve-vs-algolia" },
 ];
 
 const socialLinks = [
-  { icon: "sun", href: "#" },
-  { icon: "twitter", href: "#" },
-  { icon: "github", href: "#" },
-  { icon: "mastodon", href: "#" },
-  { icon: "discord", href: "#" },
-  { icon: "rss", href: "#" },
+  { icon: "tabler:brand-x", href: "https://x.com/trieveai" },
+  {
+    icon: "tabler:brand-github",
+    href: "https://github.com/devflowinc/trieve",
+  },
+  {
+    icon: "tabler:brand-matrix",
+    href: "https://matrix.to/#/#trieve-general:trieve.ai",
+  },
+  { icon: "tabler:brand-discord", href: "https://discord.gg/E9sPRZqpDT" },
+  { icon: "tabler:rss", href: "/rss.xml" },
 ];
 ---
 
@@ -66,18 +74,9 @@ const socialLinks = [
             <span class="mt-2 text-xs block">HIPAA<br />Compliant</span>
           </div>
         </div>
-        <div class="mt-4">
-          <p class="text-sm text-stone-600">+1 628-222-4090</p>
-          <a
-            href="mailto:humans@trieve.ai"
-            class="text-sm text-stone-600 hover:text-stone-900"
-          >
-            humans@trieve.ai
-          </a>
-        </div>
       </div>
 
-      <!-- Navigation Sections -->
+      <!-- Support Sections -->
       <div class="text-sm">
         <h3 class="mb-4 font-semibold uppercase text-stone-500">Support</h3>
         <ul class="space-y-2">
@@ -96,6 +95,7 @@ const socialLinks = [
         </ul>
       </div>
 
+      <!-- Company Sections -->
       <div class="text-sm">
         <h3 class="mb-4 font-semibold uppercase text-stone-500">Company</h3>
         <ul class="space-y-2">
@@ -114,6 +114,7 @@ const socialLinks = [
         </ul>
       </div>
 
+      <!-- Product Sections -->
       <div class="text-sm">
         <h3 class="mb-4 font-semibold uppercase text-stone-500">Product</h3>
         <ul class="space-y-2">
@@ -132,6 +133,7 @@ const socialLinks = [
         </ul>
       </div>
 
+      <!-- Comparisons Sections -->
       <div class="text-sm">
         <h3 class="mb-4 font-semibold uppercase text-stone-500">Comparisons</h3>
         <ul class="space-y-2">
@@ -161,14 +163,13 @@ const socialLinks = [
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span class="sr-only">{icon}</span>
-            <i class={`bi bi-${icon}`} />
+            <Icon name={icon} title={icon} class="w-6 h-6" />
           </a>
         ))
       }
     </div>
   </div>
   <p class="text-xs text-stone-500 text-center mt-8">
-    &copy; {new Date().getFullYear()} Trieve.ai. All rights reserved.
+    &copy; {new Date().getFullYear()} Trieve.ai - All rights reserved.
   </p>
 </footer>

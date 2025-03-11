@@ -47,7 +47,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                   alt={item.title}
                   width={images[item.image].default.width}
                   height={images[item.image].default.height}
-                  class="w-full rounded-2xl shadow-md"
+                  class="w-full rounded-2xl shadow-md bg-white"
                 />
               ) : null}
             </div>

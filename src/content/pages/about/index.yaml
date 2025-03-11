@@ -16,8 +16,7 @@ contentBlocks:
           title: Our values
           leadText: We believe in transparency
         items:
-          - image: >-
-              /src/assets/images/blocks/about/contentBlocks/content/0/value/items/0/image.png
+          - layout: image-right
             items:
               - title: Source Available
                 description: >-
@@ -34,3 +33,5 @@ contentBlocks:
                   Call us and we will answer the phone. Especially while we are
                   a small company, we will make it easy to talk to us like
                   humans.
+            image: >-
+              /src/assets/images/blocks/about/contentBlocks/content/0/value/items/0/image.png

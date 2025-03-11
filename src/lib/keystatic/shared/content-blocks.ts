@@ -55,10 +55,14 @@ export const imageAndTextBlock = {
     ),
     items: fields.array(
       fields.object({
-        image: fields.image({
-          label: "Card Image",
-          directory: "src/assets/images/blocks",
-          publicPath: "/src/assets/images/blocks/",
+        layout: fields.select({
+          label: "Layout",
+          description: "The layout of the card",
+          defaultValue: "image-left",
+          options: [
+            { value: "image-left", label: "Image Left" },
+            { value: "image-right", label: "Image Right" },
+          ],
         }),
         title: fields.text({ label: "Card Title" }),
         description: fields.text({
@@ -71,15 +75,20 @@ export const imageAndTextBlock = {
             description: fields.text({ label: "Item Value", multiline: true }),
           }),
           {
-            label: "Items",
-            description: "The items to display in the card",
+            label: "Entries",
+            description: "The entries to display in the card",
             itemLabel: (props) => props.fields.title.value,
           }
         ),
+        image: fields.image({
+          label: "Card Image",
+          directory: "src/assets/images/blocks",
+          publicPath: "/src/assets/images/blocks/",
+        }),
       }),
       {
-        label: "Cards",
-        description: "The cards to display in the list",
+        label: "Slides",
+        description: "The cards/slides display in the section",
         itemLabel: (props) => props.fields.title.value,
       }
     ),

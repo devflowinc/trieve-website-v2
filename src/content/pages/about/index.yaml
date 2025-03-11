@@ -1,0 +1,36 @@
+title: About us
+metaData:
+  title: About us
+pageHeader:
+  tagline: About us
+  title: Democratizing high quality Retrieval
+  leadText: >-
+    Search optimization is an incredibly difficult problem for most companies.
+    We are here to help you with that. Everyone should be able to have a great
+    search experience.
+contentBlocks:
+  content:
+    - discriminant: imageAndTextBlock
+      value:
+        header:
+          title: Our values
+          leadText: We believe in transparency
+        items:
+          - image: >-
+              /src/assets/images/blocks/about/contentBlocks/content/0/value/items/0/image.png
+            items:
+              - title: Source Available
+                description: >-
+                  Not only can you view all of our code, but you can also join
+                  our internal communication channels and see how we work.
+                  Everything is coordinated in the open.
+              - title: Anti Lock-In
+                description: >-
+                  We will export your data from postgresql and Qdrant anytime
+                  you ask such that you are able to offboard from our API. We
+                  believe in data portability.
+              - title: Communication
+                description: >-
+                  Call us and we will answer the phone. Especially while we are
+                  a small company, we will make it easy to talk to us like
+                  humans.

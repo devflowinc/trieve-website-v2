@@ -12,6 +12,7 @@ interface Props {
   };
   items: ReadonlyArray<{
     image?: string;
+    layout: "image-left" | "image-right";
     tagline?: string;
     title: string;
     description?: string;
@@ -40,7 +41,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
       {
         items?.map((item) => (
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center bg-amber-50/50 rounded-lg py-8 md:py-16 px-8 overflow-hidden">
-            <div>
+            <div
+              class={
+                item.layout === "image-left"
+                  ? "order-first md:order-first"
+                  : "order-last md:order-last"
+              }
+            >
               {item.image && images[item.image].default ? (
                 <Image
                   src={images[item.image].default}
@@ -51,7 +58,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
                 />
               ) : null}
             </div>
-            <div class="flex flex-col py-4 md:py-8 md:pr-16 text-center md:text-left">
+            <div
+              class:list={[
+                "flex flex-col py-4 md:py-8 text-center md:text-left",
+                {
+                  "md:pr-16": item.layout === "image-left",
+                  "md:pl-16": item.layout === "image-right",
+                },
+              ]}
+            >
               <strong class="block my-4">{item.tagline}</strong>
               <h3 class="text-3xl font-normal font-serif tracking-tighter text-balance">
                 {item.title}

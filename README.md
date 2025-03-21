@@ -39,6 +39,15 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## 📦 Keystatic
+
+This project uses Keystatic as a headless CMS. You can manage website content in the Keystatic dashboard and preview changes in real-time.
+When you run `npm run dev`, the Astro dev server will automatically launch a Keystatic server.
+
+Visit `http://localhost:4321/keystatic` to access the Keystatic dashboard.
+
+To learn more about Keystatic, refer to the [Keystatic documentation](https://keystatic.com/docs/introduction/).
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
